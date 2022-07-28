@@ -33,10 +33,10 @@ clear-db: ## Remove old database
 	rm -f ./database/realworld.db
 
 docs:
-	go get -u github.com/swaggo/swag/cmd/swag
+	go install github.com/swaggo/swag/cmd/swag@latest
 	go generate .
 
-generate: ## Generate swagger docs. Required https://github.com/arsmn/fiber-swagger 
+generate: ## Generate swagger docs. Required https://github.com/gofiber/swagger 
 	go generate .	
 
 build: ## Build project with dynamic library(see shared lib with "ldd <your_file>") 
@@ -59,13 +59,13 @@ run-container: ## Run container аfter build-container. Required https://www.doc
 test: ## Run unit test without race detection 
 	go test -v ./...
 
-test-race: ## Run unit test without race detection
+test-race: ## Run unit test with race detection
 	go test -v -race  ./...
 
 rtest: ## Run unit test with rich format. Required https://github.com/kyoh86/richgo 
 	richgo test -v ./...
 
-rtest-race: ## Run unit test with rich format. Required https://github.com/kyoh86/richgo  
+rtest-race: ## Run unit test with race detection in rich format. Required https://github.com/kyoh86/richgo  
 	richgo test -v -race  ./...
 
 #local Rudiment 
