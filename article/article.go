@@ -1,8 +1,6 @@
 package article
 
-import (
-	"github.com/alpody/fiber-realworld/model"
-)
+import "github.com/alpody/fiber-realworld/model"
 
 type Store interface {
 	GetBySlug(string) (*model.Article, error)
